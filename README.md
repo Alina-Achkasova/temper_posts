@@ -10,7 +10,7 @@ There's an overview of posts on the left side which is being loaded from an exte
 
 ### Installing
 
-> :warning: **Please use node not lower than v. 16**
+:warning: **Please use node not lower than v. 16**
 
 ```
 npm i
