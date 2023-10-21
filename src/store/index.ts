@@ -1,12 +1,12 @@
 import { createStore } from 'vuex';
-import axios from "axios";;
+import axios from 'axios';
 import PostModel from '../models/postModel';
 import HistoryItemModel from '../models/historyItemModel';
 
 export default createStore({
   state: {
     posts: Array<PostModel>(),
-    historyItems: Array<HistoryItemModel>()
+    historyItems: Array<HistoryItemModel>(),
   },
 
   mutations: {
@@ -25,7 +25,7 @@ export default createStore({
         const response = await axios.get(
           'https://jsonplaceholder.typicode.com/posts'
         );
-        commit("SET_POSTS", response.data);
+        commit('SET_POSTS', response.data);
       } catch (error) {
         console.log(error);
       }
@@ -36,7 +36,7 @@ export default createStore({
       const { oldIndex, direction, postId, isTimeTravel } = payload;
       const newIndex = direction === 'up' ? oldIndex - 1 : oldIndex + 1;
       [posts[oldIndex], posts[newIndex]] = [posts[newIndex], posts[oldIndex]];
-      commit("SET_POSTS", posts);
+      commit('SET_POSTS', posts);
       if (!isTimeTravel) {
         dispatch('addHistoryItem', { postId, oldIndex, newIndex });
       }
@@ -46,7 +46,7 @@ export default createStore({
       const historyItems = this.state.historyItems;
       const { postId, oldIndex, newIndex } = payload;
       historyItems.unshift({ postId, oldIndex, newIndex });
-      commit("SET_HISTORY_ITEMS", historyItems);
+      commit('SET_HISTORY_ITEMS', historyItems);
     },
 
     timeTravel({ commit, dispatch }, payload) {
@@ -54,16 +54,21 @@ export default createStore({
       const { index } = payload;
       for (let i = 0; i < index + 1; i++) {
         const { postId, oldIndex, newIndex } = historyItems[i];
-        const direction = oldIndex - newIndex > 0 ? 'down' : 'up'
-        dispatch('movePost', { oldIndex: newIndex, direction, postId, isTimeTravel: true });
+        const direction = oldIndex - newIndex > 0 ? 'down' : 'up';
+        dispatch('movePost', {
+          oldIndex: newIndex,
+          direction,
+          postId,
+          isTimeTravel: true,
+        });
       }
       historyItems.splice(0, index + 1);
-      commit("SET_HISTORY_ITEMS", historyItems);
-    }
+      commit('SET_HISTORY_ITEMS', historyItems);
+    },
   },
 
   getters: {
     getPosts: (state) => state.posts,
     getHistoryItems: (state) => state.historyItems,
   },
-})
+});

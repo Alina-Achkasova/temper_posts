@@ -1,4 +1,3 @@
-
 export default class PostModel {
   userId: number;
   id: number;

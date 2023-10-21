@@ -1,4 +1,3 @@
-
 export default class HistoryItemModel {
   postId: number;
   oldIndex: number;
