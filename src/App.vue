@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 gap-x-8 m-8">
+  <div class="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-2 gap-x-8 m-8">
     <div>
       <h4 class="text-xl text-white font-semibold">Sortable Post List</h4>
       <TransitionGroup tag="ul" v-if="getPosts.length">
@@ -17,11 +17,11 @@
         </li>
       </TransitionGroup>
     </div>
-    <div class="bg-neutral-100 rounded-lg shadow-md h-fit">
+    <div class="bg-neutral-100 rounded-lg shadow-md h-fit lg:col-span-2 xl:col-span-1">
       <h4 class="card-header text-l font-semibold">List of actions commited</h4>
       <TransitionGroup
         tag="ul"
-        class="p-6"
+        class="p-6 relative"
         v-if="getHistoryItems.length"
         name="list"
       >
