@@ -53,7 +53,6 @@ describe('Store', () => {
     axios.get.mockResolvedValue({
       data: mockStore.state.true,
     });
-    console.log('##############', store);
     const commit = vi.fn();
 
     await store.dispatch('fetchPosts', { commit });
