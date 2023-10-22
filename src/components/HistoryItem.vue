@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-2 py-4 text-black bg-white border border-collapse border-neutral-100 flex justify-between items-center"
+    class="p-3 text-black bg-white border border-collapse border-neutral-100 flex justify-between items-center"
     :class="{
       'rounded-t-lg': index === 0,
       'rounded-b-lg': index === historyItems.length - 1,

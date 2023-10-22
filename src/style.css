@@ -7,8 +7,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
   background-color: #f6f6f6;
 
   font-synthesis: none;
@@ -20,20 +18,12 @@
 
 body:after {
   content: ' ';
-  border-top: 27vh solid #6357b1;
+  border-top: 150px solid #6357b1;
   border-right: 98vw solid transparent;
   width: 0;
   top: 0;
   position: absolute;
   z-index: -10;
-}
-
-.card-header {
-  padding: 0.75rem 1.25rem;
-  margin-bottom: 0;
-  background-color: #ffffff;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
 }
 
 .bg-green-custom {

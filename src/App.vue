@@ -17,14 +17,11 @@
         </li>
       </TransitionGroup>
     </div>
-    <div class="bg-neutral-100 rounded-lg shadow-md h-fit lg:col-span-2 xl:col-span-1">
-      <h4 class="card-header text-l font-semibold">List of actions commited</h4>
-      <TransitionGroup
-        tag="ul"
-        class="p-6 relative"
-        v-if="getHistoryItems.length"
-        name="list"
-      >
+    <div
+      class="bg-neutral-100 rounded-lg shadow-md h-fit lg:col-span-2 xl:col-span-1"
+    >
+      <h4 class="p-5 bg-white mb-0 rounded-t-lg text-l font-semibold">List of actions commited</h4>
+      <TransitionGroup tag="ul" class="p-6 relative" name="list">
         <li
           v-for="(historyItem, index) in getHistoryItems"
           :key="historyItem"
